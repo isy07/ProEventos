@@ -184,10 +184,15 @@ export class PalestranteListaComponent implements OnInit {
         },
         (error: any) => {
           this.spinner.hide();
-          this.toastr.error('Erro ao Carregar os Eventos', 'Erro!');
+          this.toastr.error('Erro ao Carregar os Palestrantes', 'Erro!');
         }
       )
       .add(() => this.spinner.hide());
+  }
+
+  public pageChanged(event): void {
+    this.pagination.currentPage = event.page;
+    this.carregarPalestrantes();
   }
 
 }
